@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const con = mysql.createConnection({
-    host: 'gif-project-db.c08n1cygjwa3.us-east-1.rds.amazonaws.com',
-    user: 'admin',
-    password: 'ee53157VV',
-    database: 'gif_dev'
+    host: '',
+    user: '',
+    password: '',
+    database: ''
 });
 
 function getGifsFromDB() {
