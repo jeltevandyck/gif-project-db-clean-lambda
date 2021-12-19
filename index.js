@@ -39,16 +39,10 @@ exports.handler = () => {
 }
 
 function removeGifFromDatabase(uuid) {
-        let sql_select = `SELECT * FROM gifs WHERE uuid = '${uuid}'`;
+        let params = { Bucket: bucketName, Key: uuid }
 
-        con.query(sql_select, function(err, result) {
-            if (err) throw err;
-
-            let params = { Bucket: bucketName, Key: uuid }
-
-            s3.deleteObject(params, function(err, data) {
-                if (err) throw err;
-            });
+        s3.deleteObject(params, function(err, data) {
+          if (err) throw err;
         });
 
         let sql_delete = `DELETE FROM gifs WHERE uuid='${uuid}'`;
