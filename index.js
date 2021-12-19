@@ -7,7 +7,7 @@ const con = mysql.createConnection({
     database: ''
 });
 
-function getGifsFromDB() {
+exports.handler = () => {
     con.connect(function(err) {
         if (err) throw err;
     
